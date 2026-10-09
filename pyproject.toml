@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=69.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "simplibs-path"
+version = "0.1.0"
+description = "A powerful, deterministic file-system and path management library with safe I/O operations, guaranteed dir/file setups, and stack inspection."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+keywords = [
+    "path",
+    "pathlib",
+    "file-system",
+    "filesystem",
+    "files",
+    "io",
+    "inspection",
+    "caller-info",
+    "simplibs",
+    "simplibs-path",
+    "developer-tools",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Filesystems",
+]
+dependencies = [
+    "simplibs-exception>=1.0.0",
+    "simplibs-sentinels>=0.1.0",
+    "simplibs-validate>=0.1.0",
+]
+
+[[project.authors]]
+name = "Dalibor Sova (Sudip2708)"
+email = "daliborsova@seznam.cz"
+
+[project.urls]
+Homepage = "https://github.com/simplibs/simplibs-path"
+Repository = "https://github.com/simplibs/simplibs-path"
+Issues = "https://github.com/simplibs/simplibs-path/issues"
+Changelog = "https://github.com/simplibs/simplibs-path/blob/main/CHANGELOG.md"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-asyncio>=0.21.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-v"
+
+[tool.setuptools.packages.find]
+where = ["src"]

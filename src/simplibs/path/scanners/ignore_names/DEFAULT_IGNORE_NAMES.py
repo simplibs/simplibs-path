@@ -1,0 +1,1 @@
+"""Modul DEFAULT_IGNORE_NAMES."""

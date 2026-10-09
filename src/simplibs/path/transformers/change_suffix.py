@@ -1,0 +1,1 @@
+"""Modul change_suffix."""

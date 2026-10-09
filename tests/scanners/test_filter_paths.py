@@ -1,0 +1,1 @@
+"""Modul filter_paths."""
