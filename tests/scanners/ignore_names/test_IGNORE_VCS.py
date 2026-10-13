@@ -1,1 +1,0 @@
-"""Modul IGNORE_VCS."""

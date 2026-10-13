@@ -1,1 +1,0 @@
-"""Modul rebase_path."""

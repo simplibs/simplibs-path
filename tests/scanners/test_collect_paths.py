@@ -1,1 +1,0 @@
-"""Modul collect_paths."""

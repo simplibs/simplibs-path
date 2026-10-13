@@ -1,1 +1,0 @@
-"""Modul iter_paths."""

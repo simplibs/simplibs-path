@@ -1,1 +1,0 @@
-"""Modul walk_tree."""
