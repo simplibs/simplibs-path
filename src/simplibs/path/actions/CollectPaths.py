@@ -7,7 +7,6 @@ CollectPaths = create_action(
     collect_paths,
     main_param="root_dir",
     class_name="CollectPaths",
-    use_logging=False,
 )
 """Action wrapping `collect_paths` — collects files and/or directories of a tree into a sorted list."""
 
@@ -18,7 +17,8 @@ _DESIGN_NOTES = """
 ## Purpose
 The head of an extraction pipeline: the root goes in, a sorted list of paths comes out.
 
-## Logging Is Off
-The result is a list that can hold tens of thousands of paths, and the `log_this` layer would record all of it.
-Remove `use_logging=False` once `log_this` is known to truncate large results.
+## Logging
+Logging stays on (the `create_action` default). The result is a list that can hold tens of thousands of paths,
+but `log_this` shortens large arguments and results (10 items per container plus the total count), so one call
+writes a short record instead of the whole list.
 """

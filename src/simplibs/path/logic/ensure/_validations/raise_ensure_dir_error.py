@@ -35,6 +35,6 @@ Provides a structured exception when `ensure_dir` encounters an OS-level or
 permission error while attempting to create a directory tree using `mkdir`.
 
 ## Integration
-- **Caller**: `ensure_dir` in `simplibs/path/base/ensure_dir.py`.
+- **Caller**: `ensure_dir` in `simplibs/path/logic/ensure_dir.py`.
 - Emits a structured `AccessError` wrapping the caught exception instance.
 """

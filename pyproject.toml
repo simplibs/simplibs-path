@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "simplibs-path"
-version = "0.1.0"
+version = "0.1.1"
 description = "Safe path handling and directory scanning: normalize, check, ensure and collect paths — as plain functions, composable rules and pipeline actions."
 readme = "README.md"
 license = "MIT"

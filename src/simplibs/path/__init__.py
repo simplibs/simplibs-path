@@ -110,7 +110,7 @@ types of `annotations/`:
 the caller's own signatures (`def load(path: PathLike) -> ...`), always used
 together with the functions. They are few, tiny and unambiguous — unlike
 the rules and actions — so the root is the natural place for them. They stay
-importable from `simplibs.path.types` as well.
+importable from `simplibs.path.annotations` as well.
 
 ## `__all__`
 Defined here and in the domain folders (`rules`, `actions`) only; the

@@ -7,6 +7,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [0.1.1] - 2026-10-15
+
+### ✨ Added
+
+- **`simplibs.path.tools`** — public toolkit for authors of path-aware functions and custom 
+  rules. Exposes `to_path`, `is_valid_suffix`, `check_path`, `build_path_rule_exception` 
+  and `build_not_a_path_exception` without moving their existing implementations.
+
+### 🔄 Changed
+
+* **`CollectPaths`, `CollectFiles`, `CollectDirs` and `FilterPaths` now log like every other
+  action.** They were created with `use_logging=False` so that a list of tens of thousands of
+  paths would never be written to the log in full. `simplibs-validate`'s `log_this` now shortens
+  large arguments and results itself (at most 10 items per container plus the total count,
+  e.g. `[...] (30 items)`), so the restriction is no longer needed. The returned value is
+  never affected — only what is logged is shortened.
+* Requires `simplibs-actions>=0.2.2`, which logs under the module of the source function
+  (earlier versions wrote every generated action's records to a logger named `unknown`).
+* Added tests for the logging of the four scanner actions (`test_scanner_actions_logging.py`):
+  records are written, large values are shortened, and the result stays complete.
+
+### 📚 Documentation
+
+* `README_PATH_ACTIONS.md`: removed the note that the list-returning actions have logging
+  switched off.
+
+---
+
 ## [0.1.0] - 2026-10-11
 
 ### ✨ Added

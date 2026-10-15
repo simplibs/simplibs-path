@@ -62,15 +62,12 @@ All twelve actions are synchronous, so `await action.acall(data)` runs them in a
 thread (`asyncio.to_thread`) — the right model for blocking file-system calls — and a whole
 pipeline can be awaited the same way.
 
-## Two things worth knowing
+## One thing worth knowing
 
 * **The collectors are really locked.** `CollectFiles` and `CollectDirs` do not have the
   `collect_files` / `collect_dirs` options at all, so `CollectFiles(collect_dirs=True)` is a
   `TypeError`. (They wrap dedicated functions, not a `functools.partial`, which would only
   have changed defaults.)
-* **Logging is off for the list-returning actions** (`CollectPaths`, `CollectFiles`,
-  `CollectDirs`, `FilterPaths`), because the `log_this` layer would record the whole result
-  — potentially tens of thousands of paths — on every call.
 
 ## What is not here
 
@@ -347,8 +344,6 @@ for source in collect_files("src"):
 ---
 
 # Scanners
-
-All four have `use_logging=False` — see the note above.
 
 ### `CollectPaths`
 
