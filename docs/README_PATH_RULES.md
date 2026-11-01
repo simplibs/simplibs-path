@@ -70,7 +70,7 @@ the disk unless it is a `filesystem/` rule (or `IsWithin` with `resolve_symlinks
 **Lexical** — judge a path by its text
 
 * [`HasSuffix`](#hassuffix)
-* [`NameIs`](#nameis) · [`StemIs`](#stemis) · [`ParentNameIs`](#parentnameis)
+* [`NameIs`](#nameis) · [`StemIs`](#stemis) · [`ParentNameIs`](#parentnameis) · [`AnyParentNameIs`](#anyparentnameis)
 * [`IsAbsolutePath`](#isabsolutepath) · [`IsRelativePath`](#isrelativepath)
 * [`IsHidden`](#ishidden)
 * [`IsWithin`](#iswithin)
@@ -200,6 +200,39 @@ ParentNameIs(Equals("tests")).is_valid("tests/unit/test_a.py")      # -> False
 produced by the scanners are absolute, so this only arises for hand-written relative
 paths. Label `<value_name>.parent name`; error name for a non-path value:
 `PARENT_NAME_IS_ERROR`.
+
+[▲ Back to top](#-table-of-contents)
+
+---
+
+### `AnyParentNameIs`
+
+The name of **at least one folder above** the path must satisfy another rule — "somewhere inside a
+folder called ...".
+
+**Parameters:**
+
+* `rule` (*Rule | Callable[[str], bool]*): Judges one folder name as a string. It is tried on every
+  folder above the path, the nearest first, and a single match is enough.
+
+**`describe()`:** `"any parent name: <rule>"`.
+
+**Example usage:**
+
+```python
+AnyParentNameIs(Equals("tests")).is_valid("project/tests/test_a.py")      # -> True
+AnyParentNameIs(Equals("tests")).is_valid("tests/unit/deep/test_a.py")    # -> True   (any level)
+AnyParentNameIs(Equals("tests")).is_valid("src/pkg/a.py")                 # -> False
+AnyParentNameIs(StartsWith(".")).is_valid("repo/.git/HEAD")               # -> True
+```
+
+**Notes.** `ParentNameIs` looks only at the folder *directly* containing the path; this rule looks at
+all of them. The path's own name is not judged (that is `NameIs`), and neither are the root, the
+drive, the current folder `.` and `..` — they are not folder names. A path with no folder above it
+(`a.txt`) fails the rule. Nothing is read from the disk and no symlink is followed. When the rule
+fails, no single folder is to blame, so the failure card is the rule's own: it lists the folder names
+that were tried, and its label is the `value_name` itself. The error name is `ANY_PARENT_NAME_IS_ERROR`,
+also for a value that is not a path.
 
 [▲ Back to top](#-table-of-contents)
 

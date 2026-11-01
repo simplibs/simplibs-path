@@ -124,8 +124,8 @@ _DESIGN_NOTES = """
 Matching file names ("starts with `test_`", "matches this regex") needs no
 new string logic: `StartsWith`, `Regex`, `Contains` and every other string
 rule already exists. `NameIs(StartsWith("test_"))` simply points them at the
-right piece of the path. The three lenses (`NameIs`, `StemIs`,
-`ParentNameIs`) differ only in which piece; this base holds the rest.
+right piece of the path. The lenses (`NameIs`, `StemIs`, `ParentNameIs`,
+`AnyParentNameIs`) differ only in which piece; this base holds the rest.
 
 ---
 

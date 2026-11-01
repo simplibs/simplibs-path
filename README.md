@@ -126,7 +126,7 @@ src/simplibs/path/
 │   ├── ensure/           ◄── ensure_dir, ensure_file, ensure_parent_dir
 │   └── scanners/         ◄── collect_paths, collect_files, collect_dirs, iter_paths, filter_paths, ignore_names
 ├── rules/                ◄── Rule classes over the functions (domain folder)
-│   ├── lexical/          ◄── Judge a path by its text — HasSuffix, NameIs, StemIs, ParentNameIs, IsAbsolutePath, ...
+│   ├── lexical/          ◄── Judge a path by its text — HasSuffix, NameIs, StemIs, ParentNameIs, AnyParentNameIs, IsAbsolutePath, ...
 │   └── filesystem/       ◄── Ask the disk — PathExists, IsFile, IsDir, IsSymlink, IsEmptyDir, ...
 ├── actions/              ◄── Action classes over the functions (domain folder)
 └── annotations/          ◄── Shared types — PathLike, PathPredicate, RecursionDepth
@@ -236,6 +236,7 @@ annotation (`validated_type(Path, IsDir())`) and as a pipeline gate (`IsDir() >>
 | `NameIs`          | The final name satisfies another rule (`rule`) — any string rule, pointed at the name.              |
 | `StemIs`          | The name without its last suffix satisfies another rule (`rule`).                                   |
 | `ParentNameIs`    | The containing folder's name satisfies another rule (`rule`).                                       |
+| `AnyParentNameIs` | Some folder above the path has a name that satisfies another rule (`rule`).                         |
 | `IsAbsolutePath`  | The path is absolute.                                                                               |
 | `IsRelativePath`  | The path is relative.                                                                               |
 | `IsHidden`        | The final name starts with a dot (`check_attributes=False`).                                        |

@@ -1,3 +1,4 @@
+from .AnyParentNameIs import AnyParentNameIs
 from .HasSuffix import HasSuffix
 from .IsAbsolutePath import IsAbsolutePath
 from .IsHidden import IsHidden
@@ -21,6 +22,7 @@ entry in a filter over a whole tree.
 
 | Component         | Type | Description                                                         |
 | :---------------- | :--- | :------------------------------------------------------------------ |
+| `AnyParentNameIs` | Rule | Some folder above the path has a name that satisfies another rule.  |
 | `HasSuffix`       | Rule | The name ends with one of the given suffixes.                       |
 | `IsAbsolutePath`  | Rule | The path is absolute.                                               |
 | `IsHidden`        | Rule | The final name starts with a dot (optionally: Windows attribute).   |

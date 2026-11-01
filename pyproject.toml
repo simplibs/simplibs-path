@@ -1,10 +1,10 @@
 [build-system]
-requires = ["setuptools>=69.0"]
+requires = ["setuptools>=77.0.3"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "simplibs-path"
-version = "0.1.1"
+version = "0.2.0"
 description = "Safe path handling and directory scanning: normalize, check, ensure and collect paths — as plain functions, composable rules and pipeline actions."
 readme = "README.md"
 license = "MIT"
@@ -36,8 +36,8 @@ dependencies = [
     "simplibs-exception>=1.1.4",
     "simplibs-rules>=0.4.0",
     "simplibs-types>=0.1.0",
-    "simplibs-validate>=0.3.1",
-    "simplibs-actions>=0.2.0",
+    "simplibs-validate>=0.3.2",
+    "simplibs-actions>=0.2.2",
 ]
 
 [[project.authors]]

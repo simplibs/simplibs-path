@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [0.2.0] - 2026-11-01
+
+### ✨ Added
+
+#### Rules — `simplibs.path.rules`
+
+* `AnyParentNameIs(rule)` — the lexical rule for "somewhere inside a folder of this name": at least one folder above the path has a name that satisfies another rule, any string rule (`AnyParentNameIs(Equals("tests"))`, `AnyParentNameIs(StartsWith("."))`). `ParentNameIs` still judges only the folder directly containing the path. The root of the path, the drive and `..` are not folder names and are never judged, and a path with no folder above it does not satisfy the rule. The failure card is `ANY_PARENT_NAME_IS_ERROR`; it lists the folder names that were tried
+
+### 📚 Documentation
+
+* `README_PATH_RULES.md` and the main `README.md`: the new rule in the lexical rules
+
+---
+
 ## [0.1.1] - 2026-10-15
 
 ### ✨ Added

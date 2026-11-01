@@ -14,7 +14,7 @@ Building blocks shared by the rules in `lexical/` and `filesystem/`.
 
 | Component                    | Type  | Description                                                              |
 | :--------------------------- | :---- | :----------------------------------------------------------------------- |
-| `PathPartIs`                 | Class | Base of the lens rules (`NameIs`, `StemIs`, `ParentNameIs`).             |
+| `PathPartIs`                 | Class | Base of the lens rules (`NameIs`, `StemIs`, `ParentNameIs`, `AnyParentNameIs`).             |
 | `build_not_a_path_exception` | Function | Failure card for a value that is not a usable path.                   |
 | `build_path_rule_exception`  | Function | A path rule's whole `build_exception`, from its three sentences.      |
 | `check_path`                 | Function | Runs a filesystem check and answers `False` instead of raising.       |

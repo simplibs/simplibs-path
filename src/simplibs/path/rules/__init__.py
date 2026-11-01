@@ -9,6 +9,7 @@ from .filesystem import (
     PathExists,
 )
 from .lexical import (
+    AnyParentNameIs,
     HasSuffix,
     IsAbsolutePath,
     IsHidden,
@@ -22,6 +23,7 @@ from .lexical import (
 
 __all__ = [
     # lexical — judge a path by its text
+    "AnyParentNameIs",
     "HasSuffix",
     "IsAbsolutePath",
     "IsHidden",
